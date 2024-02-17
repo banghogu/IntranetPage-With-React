@@ -1,0 +1,25 @@
+.detail__wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+    
+    height: auto !important;
+
+    .btn-box{
+        gap: 2rem;
+    }
+
+    .textContent{
+        white-space: pre-wrap;
+        word-spacing: 0.5rem;
+        line-height: 2rem;
+    }
+
+    
+
+    .btn__align{
+        display: flex;
+        justify-content: space-between;
+    }
+
+}

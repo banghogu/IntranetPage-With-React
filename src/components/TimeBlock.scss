@@ -1,0 +1,75 @@
+@import "../scss/base.scss";
+
+.time-block {
+  overflow: hidden;
+  border-radius: 3rem;
+  display: grid;
+  align-items: center;
+  position: relative;
+  @include mobile {
+    border-radius: 1rem;
+  }
+  .heading {
+    font-size: 1.4rem;
+    color: $gray;
+    @include mobile {
+      font-size: 1.2rem;
+    }
+  }
+  &__time {
+    font-size: 2.4rem;
+    color: $black;
+    font-weight: 900;
+    @include mobile {
+      font-size: 2rem;
+    }
+  }
+  &__icon {
+    @include position(a, right, -1rem, top, 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6.6rem;
+    height: 6.6rem;
+    border-radius: 100%;
+    @include mobile {
+      width: 5rem;
+      height: 5rem;
+    }
+    &::before {
+      font-family: $f-ico2;
+      font-size: 2.5rem;
+      @include mobile {
+        font-size: 2rem;
+      }
+    }
+    &.ico1 {
+      background: linear-gradient(135deg, rgba($primary, 0.15), rgba($primary, 0));
+      &::before {
+        content: "\F293";
+        color: $primary;
+      }
+    }
+    &.ico2 {
+      background: linear-gradient(135deg, rgba($danger, 0.15), rgba($danger, 0));
+      &::before {
+        content: "\F2E6";
+        color: $danger;
+      }
+    }
+    &.ico3 {
+      background: linear-gradient(135deg, rgba($success, 0.15), rgba($success, 0));
+      &::before {
+        content: "\F292";
+        color: $success;
+      }
+    }
+    &.ico4 {
+      background: linear-gradient(135deg, rgba($secondary, 0.15), rgba($secondary, 0));
+      &::before {
+        content: "\F67A";
+        color: $secondary;
+      }
+    }
+  }
+}

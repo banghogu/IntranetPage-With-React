@@ -1,0 +1,19 @@
+@import "../../scss/base.scss";
+
+.heading {
+  &.large {
+    font-size: 4.3rem;
+    font-weight: 800;
+    color: $black;
+  }
+  &.regular {
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: $black;
+  }
+  &.small {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: $black;
+  }
+}

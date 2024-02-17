@@ -1,0 +1,39 @@
+@import "../../scss/base.scss";
+
+.loading {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  > div {
+    @include position(a, left, 50%, top, 50%);
+    font-size: 1.2rem;
+    color: $white;
+    white-space: nowrap;
+    width: 10rem;
+    height: 10rem;
+    text-align: center;
+    line-height: 10rem;
+  }
+  span {
+    @include position(a, left, 50%, top, 50%);
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+    border: 0.5rem solid;
+    border-color: transparent $success $success $success;
+    animation: loading 1s infinite;
+    box-sizing: border-box;
+    transform-origin: 0 0;
+  }
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg) translate(-50%, -50%);
+  }
+  100% {
+    transform: rotate(360deg) translate(-50%, -50%);
+  }
+}

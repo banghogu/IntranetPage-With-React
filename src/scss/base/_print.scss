@@ -1,0 +1,25 @@
+@media print {
+  .header,
+  .footer,
+  .visual {
+    display: none;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+}
+
+// 용지 및 여백설정
+@page {
+  size: 29mm 30mm;
+  margin: 10mm;
+}
+
+// 프린트 반응형
+.print {
+  display: block;
+  @media screen {
+    display: none;
+  }
+}

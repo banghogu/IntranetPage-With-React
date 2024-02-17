@@ -1,0 +1,23 @@
+.m0auto {
+  width: $webCenterWidth;
+  margin: 0 auto;
+  @include tablet {
+    width: 100%;
+    padding: 0 2rem;
+    box-sizing: border-box;
+  }
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.a11y-hidden {
+  @include a11y-hidden;
+}
+
+hr {
+  border: none;
+  border-top: 0.1rem solid $black;
+  opacity: 0.1;
+  margin: 4rem 0;
+}

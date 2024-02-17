@@ -1,0 +1,50 @@
+@import "../scss/base.scss";
+
+.login {
+  @include position(a, left, 50%, top, 50%);
+  width: 37rem;
+
+  &__wrapper {
+    @include background("./bg_login.jpg", center, null, cover);
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+  .heading {
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  label {
+    padding: 0.5rem 0 0;
+    margin-bottom: -0.5rem;
+    font-size: 1.4rem;
+    color: $gray;
+  }
+  input {
+    background-color: rgba($primary, 0.07);
+  }
+  form {
+    display: grid;
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 37rem;
+  }
+}
+.join-wrap {
+  max-width: 37rem;
+  padding: 3rem 0 0;
+  word-break: keep-all;
+  p ~ p {
+    margin-top: 2rem;
+  }
+  button {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+.error {
+  padding: 1rem 0 0;
+  color: $danger;
+  font-size: 1.4rem;
+  text-align: center;
+}

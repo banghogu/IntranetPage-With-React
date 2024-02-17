@@ -1,0 +1,65 @@
+@use "sass:list";
+@import "../scss/base.scss";
+$iconList: (
+  1: (
+    "class": "tel",
+    "icon": "\F5C1",
+    "color": $primary,
+  ),
+  2: (
+    "class": "job",
+    "icon": "\F67A",
+    "color": $danger,
+  ),
+  3: (
+    "class": "email",
+    "icon": "\F47C",
+    "color": $success,
+  ),
+);
+@mixin infoList($class, $i) {
+  .#{$class} {
+    &::before {
+      content: map-get($iconList, $i, icon);
+      color: map-get($iconList, $i, color);
+      font-family: $f-ico2;
+    }
+  }
+}
+.info-list {
+  @for $i from 1 through list.length($iconList) {
+    @include infoList(map-get($iconList, $i, class), $i);
+  }
+  display: grid;
+  gap: 1rem;
+  padding: 3rem 0 0;
+  line-height: 2.1rem;
+  > li {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    gap: 0 1rem;
+    &::before {
+      grid-row: span 2;
+      align-self: center;
+      width: 3.7rem;
+      height: 3.7rem;
+      line-height: 3.7rem;
+      text-align: center;
+      font-size: 1.8rem;
+      border: 1px solid $formline;
+      border-radius: 100%;
+    }
+  }
+  &__title {
+    font-size: 1.4rem;
+    color: $black;
+    font-weight: 500;
+    letter-spacing: 0.3rem;
+    align-self: end;
+  }
+  &__content {
+    align-self: start;
+    font-size: 1.4rem;
+    color: $gray;
+  }
+}

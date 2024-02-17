@@ -1,0 +1,19 @@
+@import "../scss/base.scss";
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  gap: 1rem;
+  padding: 5rem 1rem;
+  width: 10rem;
+  @include mobile {
+    @include position(f, left, 0, top, 0, 100);
+    padding: 2rem 0;
+    width: 8rem;
+    height: 100vh;
+    background-color: $white;
+    box-sizing: border-box;
+  }
+}

@@ -1,0 +1,78 @@
+@use "sass:list";
+@import "../../scss/base.scss";
+
+$Gnb: (
+  1: (
+    "icon": "\F422",
+  ),
+  2: (
+    "icon": "\F25C",
+  ),
+  3: (
+    "icon": "\F1A4",
+  ),
+  4: (
+    "icon": "\F4D7",
+  ),
+  5: (
+    "icon": "\F194",
+  ),
+  6: (
+    "icon": "\F4D4",
+  ),
+);
+@mixin gnbIcon($index, $icon) {
+  .ico#{$index} {
+    a {
+      &::before {
+        content: $icon;
+        font-family: $f-ico2;
+      }
+    }
+  }
+}
+.gnb {
+  @for $i from 1 through list.length($Gnb) {
+    @include gnbIcon($i, map-get($Gnb, $i, icon));
+  }
+  display: grid;
+  gap: 2rem;
+  padding: 5rem 0 0;
+  @include mobile {
+    width: 8rem;
+  }
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 1.5rem 0;
+    width: 12rem;
+    font-size: 3rem;
+    color: $gray;
+    text-align: center;
+    outline: none;
+    @include mobile {
+      font-size: 2.3rem;
+      width: 100%;
+      padding: 1rem 0.5rem;
+      box-sizing: border-box;
+    }
+    &.--active {
+      color: $primary;
+      &::after {
+        @include position(a, right, 0, top, 0);
+        content: "";
+        height: 100%;
+        width: 0.5rem;
+        background-color: $primary;
+        @include mobile {
+          width: 0.3rem;
+        }
+      }
+    }
+  }
+  span {
+    @include a11y-hidden;
+  }
+}

@@ -1,0 +1,4 @@
+@mixin background($file, $coordinate: null, $color: null, $size: contain) {
+  background: url(#{$url}#{$file}) no-repeat $coordinate $color;
+  background-size: $size;
+}

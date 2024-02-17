@@ -1,0 +1,11 @@
+@import "../scss/base.scss";
+
+.business-card {
+  text-align: center;
+  .block {
+    @include background("bg_profile.png", center, null, cover);
+  }
+  .btn {
+    margin-top: 1.5rem;
+  }
+}

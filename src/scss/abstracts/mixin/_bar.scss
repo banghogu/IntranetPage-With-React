@@ -1,0 +1,22 @@
+@mixin bar($method, $gap, $width, $height, $bg) {
+  $isGap: $gap;
+  $left: calc($isGap / 2) + calc($width / 2);
+
+  display: flex;
+  gap: $isGap;
+  > li + li {
+    @include position("r");
+    &::after {
+      @include position("a", left, -#{$left}, top, 50%);
+      content: "";
+      width: $width;
+      height: $height;
+
+      @if $method == "line" or $method == "l" {
+        background-color: $bg;
+      } @else if $method == "bg" or $method == "img" {
+        @include background($bg);
+      }
+    }
+  }
+}

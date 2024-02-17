@@ -1,0 +1,13 @@
+@import "../../scss/base.scss";
+
+.txt- {
+  &type1 {
+    font-size: 1.3rem;
+    color: $gray;
+  }
+  &type2 {
+    font-size: 1.4rem;
+    color: $black;
+    font-weight: 600;
+  }
+}

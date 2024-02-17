@@ -1,0 +1,71 @@
+@use "sass:list";
+@import "../../scss/base.scss";
+
+$BadgeSize: (
+  1: (
+    "class": "regular",
+    "fontSize": 1.1rem,
+    "height": 2rem,
+    "border": 0,
+    "padding": 0.7rem,
+  ),
+  2: (
+    "class": "small",
+    "fontSize": 1.4rem,
+    "height": 4rem,
+    "border": 0.1rem,
+    "padding": 3rem,
+  ),
+);
+$BadgeColor: (
+  1: (
+    "class": "primary",
+    "borderColor": $primary,
+    "bgColor": $primary,
+    "color": $primary,
+  ),
+  2: (
+    "class": "danger",
+    "borderColor": $danger,
+    "bgColor": $danger,
+    "color": $danger,
+  ),
+  3: (
+    "class": "success",
+    "borderColor": $success,
+    "bgColor": $success,
+    "color": $success,
+  ),
+  4: (
+    "class": "light",
+    "borderColor": $lightgray,
+    "bgColor": $lightgray,
+    "color": $black,
+  ),
+  5: (
+    "class": "dark",
+    "borderColor": $black,
+    "bgColor": $black,
+    "color": $white,
+  ),
+);
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.3rem;
+  font-weight: 500;
+  @for $i from 1 through list.length($BadgeSize) {
+    @include BadgeSize(map-get($BadgeSize, $i, class), $i);
+  }
+  @for $i from 1 through list.length($BadgeColor) {
+    @include BadgeColor(map-get($BadgeColor, $i, class), $i);
+  }
+  &.dark {
+    background-color: $black;
+  }
+  &.light {
+    background-color: $lightgray;
+  }
+}

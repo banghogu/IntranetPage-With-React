@@ -1,0 +1,50 @@
+@mixin position($state, $x: null, $xv: null, $y: null, $yv: null, $z: 1) {
+  @if $state == "absolute" or $state == "a" {
+    position: absolute;
+  } @else if $state == "fixed" or $state == "f" {
+    position: fixed;
+  } @else if $state == "sticky" or $state == "s" {
+    position: sticky;
+  } @else if $state == "relative" or $state == "r" {
+    position: relative;
+  }
+
+  #{$x}: $xv;
+  #{$y}: $yv;
+
+  z-index: var(--zindex, $z);
+
+  @if $x == "left" and $y == "top" {
+    @if $xv == 50% and $yv == 50% {
+      transform: translate(-50%, -50%);
+    } @else if $xv == 50% {
+      transform: translateX(-50%);
+    } @else if $yv == 50% {
+      transform: translateY(-50%);
+    }
+  } @else if $x == "right" and $y == "bottom" {
+    @if $xv == 50% and $yv == 50% {
+      transform: translate(50%, 50%);
+    } @else if $xv == 50% {
+      transform: translateX(50%);
+    } @else if $yv == 50% {
+      transform: translateY(50%);
+    }
+  } @else if $x == "right" and $y == "top" {
+    @if $xv == 50% and $yv == 50% {
+      transform: translate(50%, -50%);
+    } @else if $xv == 50% {
+      transform: translateX(50%);
+    } @else if $yv == 50% {
+      transform: translateY(-50%);
+    }
+  } @else if $x == "left" and $y == "bottom" {
+    @if $xv == 50% and $yv == 50% {
+      transform: translate(-50%, 50%);
+    } @else if $xv == 50% {
+      transform: translateX(-50%);
+    } @else if $yv == 50% {
+      transform: translateY(50%);
+    }
+  }
+}

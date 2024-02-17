@@ -1,0 +1,23 @@
+@import "../../scss/base.scss";
+
+.pagination {
+  overflow: hidden;
+  display: inline-flex;
+  border: 0.1rem solid $formline;
+  margin-top: 2rem;
+  background-color: $white;
+  border-radius: 0.4rem;
+  button {
+    height: 4rem;
+    padding: 0 1rem;
+    color: $primary;
+    font-weight: 700;
+    transition: 0.3s;
+    &:hover {
+      background-color: $lightgray;
+    }
+    + button {
+      border-left: 0.1rem solid $formline;
+    }
+  }
+}

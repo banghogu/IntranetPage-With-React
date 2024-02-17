@@ -1,0 +1,76 @@
+@import "../scss/base.scss";
+
+.main-top {
+  display: grid;
+  grid-template-columns: 1fr 30rem;
+  gap: 3rem;
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    > :not(.main__attend) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      .mt10 {
+        margin: 0;
+        .block {
+          height: 100%;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    > :not(.main__attend) {
+      display: block;
+      .mt10 {
+        margin-top: 1rem;
+      }
+    }
+  }
+  > .block {
+    margin: 0;
+  }
+}
+.time-wrap {
+  padding: 3rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  @include tablet {
+    gap: 1rem;
+    padding: 2rem 0;
+    grid-template-columns: repeat(2, 1fr);
+    .block {
+      margin: 0;
+    }
+  }
+  @include mobile {
+    padding: 1rem 0 2rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    .block {
+      margin: 0;
+    }
+  }
+}
+.main__attend {
+  @include tablet {
+    order: 2;
+  }
+  @include mobile {
+    order: 2;
+  }
+  > .align {
+    margin-bottom: 3rem;
+    .btn {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .board a {
+    pointer-events: none;
+  }
+}

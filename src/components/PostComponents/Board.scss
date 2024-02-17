@@ -1,0 +1,81 @@
+@import "../../scss/base.scss";
+@import "../Common/Block.scss";
+
+.board {
+  &-wrap {
+    .heading {
+      padding-bottom: 3rem;
+    }
+  }
+  .card & {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  }
+  .list & {
+    display: grid;
+    gap: 1rem;
+  }
+  > li {
+    position: relative;
+  }
+  .block {
+    padding: 2rem;
+  }
+  a {
+    .card & {
+      display: grid;
+      gap: 0.5rem;
+      text-align: center;
+      padding: 4rem 0 0;
+    }
+    .list & {
+      display: grid;
+      grid-template-columns: min-content 1fr minmax(min-content, 10rem);
+      grid-template-rows: min-content 1fr;
+      align-items: center;
+      gap: 0rem 1rem;
+    }
+  }
+  &__title {
+    font-size: 2rem;
+    color: $black;
+    font-weight: 800;
+  }
+  &__status {
+    font-size: 1.3rem;
+    color: $gray;
+  }
+  &__writer {
+    font-size: 1.4rem;
+    color: $gray;
+    white-space: nowrap;
+    .list & {
+      grid-column: 3/4;
+      grid-row: 1/-1;
+      text-align: center;
+    }
+  }
+  &__more {
+    @include position(a, right, 2rem, top, 2rem);
+    dialog {
+      @extend .block;
+      border-radius: 1rem;
+      padding: 1rem 0 !important;
+      button {
+        white-space: nowrap;
+        padding: 0.5rem 1.5rem;
+        transition: 0.5s;
+        &:hover {
+          background-color: $lightgray;
+        }
+      }
+    }
+    .list & {
+      @include position(a, right, 0, top, 50%);
+      dialog {
+        left: inherit;
+        @include position(a, right, 1.5rem, top, calc(50% - 2rem));
+      }
+    }
+  }
+}

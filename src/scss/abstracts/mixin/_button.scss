@@ -1,0 +1,54 @@
+// 버튼아이콘정의
+@mixin btnIcon($class) {
+  @include background(map-get($buttonIcon, $class, bgImg));
+  content: "";
+  width: map-get($buttonIcon, $class, width);
+  height: map-get($buttonIcon, $class, height);
+}
+
+@mixin buttonIcon($class) {
+  &.ico#{$class} {
+    @if map-get($buttonIcon, $class, direction) ==
+      "b" or
+      map-get($buttonIcon, $class, direction) ==
+      "before"
+    {
+      &::before {
+        @include btnIcon($class);
+      }
+    } @else if
+      map-get($buttonIcon, $class, direction) ==
+      "a" or
+      map-get($buttonIcon, $class, direction) ==
+      "after"
+    {
+      &::after {
+        @include btnIcon($class);
+      }
+    }
+  }
+}
+
+// 버튼색상정의
+@mixin buttonColor($color, $i) {
+  &.#{$color} {
+    border-color: map-get($buttonColor, $i, borderColor);
+    background-color: map-get($buttonColor, $i, bgColor);
+    color: map-get($buttonColor, $i, color);
+  }
+}
+
+// 버튼크기정의
+@mixin buttonSize($size, $i) {
+  &.#{$size} {
+    font-size: map-get($buttonSize, $i, fontSize);
+    height: map-get($buttonSize, $i, height);
+    // height: map-get($buttonSize, $i, height, web);
+    border: map-get($buttonSize, $i, border) solid;
+    padding: 0 map-get($buttonSize, $i, padding);
+    @include mobile {
+      font-size: map-get($buttonSize, $i, fontSize, mobile);
+      height: map-get($buttonSize, $i, height, mobile);
+    }
+  }
+}

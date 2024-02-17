@@ -1,0 +1,142 @@
+@import "../../scss/base.scss";
+@import "../Common/Block.scss";
+
+.board {
+  &-wrap {
+    .heading {
+      padding-bottom: 3rem;
+    }
+  }
+  .card & {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  }
+  .list & {
+    display: grid;
+    gap: 1rem;
+  }
+  .gallery & {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    @include mobile {
+      grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    }
+  }
+  > li {
+    position: relative;
+    .list & {
+      + li {
+        border-top: 0.1rem solid $formline;
+        padding-top: 1rem;
+      }
+    }
+  }
+  .block {
+    padding: 2rem;
+  }
+  a {
+    .card & {
+      display: grid;
+      gap: 0.5rem;
+      text-align: center;
+      padding: 4rem 0 0;
+    }
+    .list & {
+      display: grid;
+      grid-template-columns: min-content 1fr minmax(min-content, 10rem);
+      grid-template-rows: min-content 1fr;
+      align-items: center;
+      gap: 0rem 1rem;
+      @include mobile {
+        grid-template-columns: min-content 1fr min-content;
+        padding: 0 2rem 0 0;
+        gap: 0rem 0.5rem;
+      }
+    }
+    .gallery & {
+      &:hover {
+        .board__title {
+          color: $primary;
+        }
+        img {
+          filter: contrast(110%) brightness(110%);
+        }
+      }
+    }
+  }
+  &__title {
+    font-size: 2rem;
+    color: $black;
+    font-weight: 800;
+    transition: 0.5s;
+    @include mobile {
+      @include ellipsis(1);
+    }
+  }
+  &__status {
+    font-size: 1.3rem;
+    color: $gray;
+  }
+  &__writer {
+    font-size: 1.4rem;
+    color: $gray;
+    white-space: nowrap;
+    .list & {
+      grid-column: 3/4;
+      grid-row: 1/-1;
+      text-align: center;
+      @include mobile {
+        text-align: right;
+      }
+    }
+  }
+  &__content {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    margin: 1rem 0;
+    color: $gray;
+  }
+  &__more {
+    @include position(a, right, 2rem, top, 2rem);
+    dialog {
+      @extend .block;
+      border-radius: 1rem;
+      padding: 1rem 0 !important;
+      button {
+        white-space: nowrap;
+        padding: 0.5rem 1.5rem;
+        transition: 0.5s;
+        &:hover {
+          background-color: $lightgray;
+        }
+      }
+    }
+    .list & {
+      @include position(a, right, 0, top, 50%);
+      dialog {
+        left: inherit;
+        @include position(a, right, 1.5rem, top, calc(50% - 2rem));
+      }
+    }
+  }
+}
+.gallery {
+  &__info {
+    padding: 1.5rem 3rem;
+  }
+  .block {
+    padding: 0;
+    overflow: hidden;
+    border-radius: 1rem 1rem 3rem 3rem;
+  }
+  img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    transition: filter 0.4s;
+  }
+}

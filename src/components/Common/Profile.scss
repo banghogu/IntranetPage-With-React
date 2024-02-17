@@ -1,0 +1,88 @@
+@import "../../scss/base.scss";
+.profile {
+  position: relative;
+  &::before {
+    @include position(a, left, 50%, top, 0, -1);
+    content: "\F4E1";
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-family: $f-ico2;
+    width: 9.6rem;
+    height: 9.6rem;
+    border-radius: 100%;
+    background-color: $formline;
+    font-size: 4rem;
+    color: $white;
+    border: 0.8rem solid $white;
+    box-sizing: border-box;
+    .main & {
+      z-index: 2;
+    }
+    .board & {
+      width: 5rem;
+      height: 5rem;
+      left: 0;
+      border: none;
+      border-radius: 1rem;
+      transform: none;
+      font-size: 2.5rem;
+      z-index: 1;
+    }
+  }
+  img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 100%;
+    border: 0.8rem solid $white;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    .board & {
+      width: 7rem;
+      height: 7rem;
+      border-radius: 1rem;
+      border: none;
+    }
+    .list & {
+      width: 5rem;
+      height: 5rem;
+      position: relative;
+      z-index: 10;
+    }
+    .main & {
+      position: relative;
+      z-index: 10;
+    }
+    &:not([src]),
+    &[src=""] {
+      opacity: 0;
+      .board & {
+        display: block;
+      }
+    }
+  }
+  .list & {
+    grid-row: 1 / -1;
+  }
+}
+.profile-edit {
+  display: inline-block;
+  position: relative;
+  button {
+    @include position(a, left, 50%, bottom, 0.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    margin-left: 3.5rem;
+    background: $white;
+    border-radius: 100%;
+    box-shadow: 0 0 0.6rem 0.3rem rgba(68, 102, 242, 0.1);
+    cursor: pointer;
+    svg {
+      fill: $black;
+    }
+  }
+}

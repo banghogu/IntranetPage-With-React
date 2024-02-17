@@ -1,0 +1,38 @@
+@import "../../scss/base.scss";
+
+.my-status {
+  $gap: 5rem;
+  $left: calc((-1 * $gap) / 2);
+
+  display: flex;
+  gap: $gap;
+  padding: 2rem 3rem 0;
+  @include mobile {
+    padding: 1rem 0 0;
+  }
+  > li {
+    position: relative;
+    flex: 1;
+    text-align: center;
+    + li {
+      &::before {
+        @include position(a, left, calc($left), top, 50%);
+        content: "";
+        width: 0.1rem;
+        height: 1.5rem;
+        background-color: $gray;
+      }
+    }
+  }
+  &__title {
+    font-size: 1.4rem;
+  }
+  &__time {
+    font-size: 1.2rem;
+    color: $gray;
+  }
+  &__state {
+    font-size: 1.2rem;
+    color: $gray;
+  }
+}

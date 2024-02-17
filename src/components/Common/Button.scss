@@ -1,0 +1,129 @@
+@use "sass:list";
+@import "../../scss/base.scss";
+
+$buttonSize: (
+  1: (
+    "class": "regular",
+    "fontSize": 1.4rem,
+    "height": 3.5rem,
+    "border": 0.1rem,
+    "padding": 1.75rem,
+  ),
+  2: (
+    "class": "small",
+    "fontSize": 1.3rem,
+    "height": 3rem,
+    "border": 0.1rem,
+    "padding": 1rem,
+  ),
+  3: (
+    "class": "xsmall",
+    "fontSize": 1.2rem,
+    "height": 2.2rem,
+    "border": 0.1rem,
+    "padding": 0.5rem,
+  ),
+);
+$buttonColor: (
+  1: (
+    "class": "danger",
+    "borderColor": #f73164,
+    "bgColor": #f73164,
+    "color": $white,
+  ),
+  2: (
+    "class": "primary",
+    "borderColor": #7366ff,
+    "bgColor": #7366ff,
+    "color": $white,
+  ),
+  3: (
+    "class": "success",
+    "borderColor": #54ba4a,
+    "bgColor": #54ba4a,
+    "color": $white,
+  ),
+  4: (
+    "class": "white",
+    "borderColor": #2c323f,
+    "bgColor": #fff,
+    "color": #2c323f,
+  ),
+);
+$buttonIcon: (
+  1: (
+    "direction": a,
+    "width": 1rem,
+    "height": 2rem,
+    "bgImg": "ico.svg",
+  ),
+  2: (
+    "direction": b,
+    "width": 1rem,
+    "height": 2rem,
+    "bgImg": "ico.svg",
+  ),
+);
+
+.btn-logout {
+  &::before {
+    content: "\F1C3";
+    font-family: $f-ico2;
+    font-size: 2.5rem;
+    color: $gray;
+    @include mobile {
+      font-size: 2.3rem;
+    }
+  }
+  .header & {
+    @include position(a, left, 50%, bottom, 5rem);
+  }
+  @include mobile {
+    &::after {
+      content: "로그아웃";
+      display: block;
+      white-space: nowrap;
+      font-size: 1.2rem;
+      color: $gray;
+    }
+  }
+}
+
+.btn-more {
+  &::before {
+    content: "\F5D3";
+    font-family: $f-ico2;
+    font-size: 1.5rem;
+  }
+}
+
+.btn-close {
+  &::before {
+    content: "\F659";
+    font-family: $f-ico2;
+    font-size: 1.5rem;
+  }
+  .dialog & {
+    @include position(a, right, 2rem, top, 2rem);
+  }
+}
+
+.btn {
+  border-radius: 0.3rem;
+  @for $i from 1 through list.length($buttonSize) {
+    @include buttonSize(map-get($buttonSize, $i, class), $i);
+  }
+  @for $i from 1 through list.length($buttonColor) {
+    @include buttonColor(map-get($buttonColor, $i, class), $i);
+  }
+  @for $i from 1 through list.length($buttonIcon) {
+    @include buttonIcon($i);
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  + .btn {
+    margin-left: 0.5rem;
+  }
+}

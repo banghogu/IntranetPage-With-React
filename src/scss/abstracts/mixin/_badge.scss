@@ -1,0 +1,18 @@
+// 뱃지색상정의
+@mixin BadgeColor($color, $i) {
+  &.#{$color} {
+    border-color: map-get($BadgeColor, $i, borderColor);
+    background-color: rgba(map-get($BadgeColor, $i, bgColor), 0.1);
+    color: map-get($BadgeColor, $i, color);
+  }
+}
+
+// 뱃지크기정의
+@mixin BadgeSize($size, $i) {
+  &.#{$size} {
+    font-size: map-get($BadgeSize, $i, fontSize);
+    height: map-get($BadgeSize, $i, height);
+    border: map-get($BadgeSize, $i, border) solid;
+    padding: 0 map-get($BadgeSize, $i, padding);
+  }
+}

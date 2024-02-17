@@ -1,0 +1,10 @@
+@import "../../scss/base.scss";
+.logo {
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  img {
+    width: auto;
+    justify-self: center;
+  }
+}

@@ -1,0 +1,23 @@
+@import "../../scss/base.scss";
+
+.attend-view {
+  display: none;
+  border: 0.1rem solid $formline;
+  padding: 3rem;
+  border-radius: 1.5rem;
+  margin: 1rem 0 0;
+  &.--active {
+    display: block;
+  }
+  &__date {
+    color: $gray;
+    font-size: 1.4rem;
+    padding: 0 0 0.5rem;
+    font-weight: 500;
+  }
+  &__content {
+    color: #a5a5a5;
+    font-size: 1.4rem;
+    line-height: 1.7;
+  }
+}

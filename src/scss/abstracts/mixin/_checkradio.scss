@@ -1,0 +1,23 @@
+@mixin checkradio($class, $offImg, $onImg, $width, $height) {
+  .#{$class} {
+    @extend %label;
+    + label {
+      &::before {
+        @include background($offImg);
+        content: "";
+        width: $width;
+        height: $height;
+      }
+    }
+    &:checked {
+      + label {
+        &::before {
+          @include background($onImg);
+        }
+      }
+    }
+  }
+  .radio-type1 {
+    @extend %label;
+  }
+}
